@@ -1,6 +1,6 @@
 def readplain_text(filename):
-     f=open(filename,"r")
-     text=f.read()
+     f = open(filename,"r")
+     text = f.read()
      f.close()
      return text
 
@@ -16,7 +16,7 @@ def encrypt(key, text):
     for c in text:
 
         encrypted = encrypted +str(ord(c) + (len(key) % 127))+" "
-    print (encrypted)
+    print(encrypted)
     return encrypted
 
 
