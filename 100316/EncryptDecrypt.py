@@ -12,18 +12,19 @@ def write_to_file(filename, text):
 
 
 def encrypt(key, text):    
-    encrypted = ""
-    for c in text:
+   encrypted = ""
+   for c in text:
 
-        encrypted = encrypted +str(ord(c) + (len(key) % 127))+" "
-    print(encrypted)
-    return encrypted
-
+       encrypted = encrypted +str(ord(c) + (len(key) % 127))+" "
+       #encrypted = encrypted + str(ord(c) + (key % 127))+" "
+   print(encrypted)
+   return encrypted
 
 
 def decrypt(key, text):    
     decrypted = ""
     text = text.split()
+    #print(text)
     for c in text:
 
         #decrypted = decrypted +chr(int(c) + (len(key) % 127))
@@ -38,7 +39,7 @@ def encryption (filename, key):
 
     #cipher_text = decrypt(key, text )
     cipher_text = encrypt(key, text )  
-    cipher_text = decrypt(key, text )
+    cipher_text = decrypt(key, encrypt(key,text) )
     write_to_file(filename, cipher_text)
 
 #Pass plain text file and key to encryption method
