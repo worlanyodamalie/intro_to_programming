@@ -27,7 +27,7 @@ def decrypt(key, text):
     for c in text:
 
         #decrypted = decrypted +chr(int(c) + (len(key) % 127))
-         decrypted = decrypted +chr(int(c) + (len(key) % 127))
+         decrypted = decrypted +chr(int(c) - (len(key) % 127))
     print (decrypted)
     return decrypted
 
